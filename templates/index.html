@@ -1,0 +1,39 @@
+$def with(turn,number,users,goldpoint)
+<html>
+	<head>
+		<meta http-equiv="refresh" content="1">
+		<script type="text/javascript">
+			function draw(){
+				var canvas=document.getElementById("cv");
+				var a=$goldpoint
+				if(canvas.getContext){
+					var ctx=canvas.getContext("2d");
+					ctx.beginPath();
+					ctx.moveTo(0,a[0]);
+					for(i=1;i<=$turn-1;i++){
+						ctx.lineTo(10*i,a[i]);
+					}
+					ctx.stroke();
+					ctx.endPath();
+				}
+			}
+		</script>
+	</head>
+	<body onload="draw();">
+		<p>现在是第$turn轮</p>
+		<p>上一轮获胜数字$number</p>
+		<p>选手得分</p>
+		<table border="1">
+			<tr>
+				$for i in users:
+					<td><b> $i </b></td>
+			</tr>
+			<tr>
+				$for i in users:
+					<td><b> $users[i] </b></td>
+			</tr>
+		</table>
+		<canvas id="cv" width="1500" height="150">
+		</canvas>
+	</body>
+</html>

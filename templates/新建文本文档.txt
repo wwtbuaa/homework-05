@@ -1,0 +1,25 @@
+$def with(goldpoint)
+<html>
+	<head>
+		<!--<meta http-equiv="refresh" content="1">-->
+		<script type="text/javascript">
+			function draw(){
+				var canvas=document.getElementById("cv");
+				if(canvas.getContext){
+					var ctx=canvas.getContext("2d");
+					ctx.beginPath();
+					ctx.moveTo(10,20);
+					ctx.lineTo(20,30);
+					ctx.stroke();
+					/*for(var i=2;i<=3;i++){
+						ctx.lineTo(10*i,10*i+10);//$goldpoint[i]);
+					}*/
+				}
+			}
+		</script>
+	</head>
+	<body onload="draw();">
+		<canvas id="cv" width="150" height="150" color="red">
+		</canvas>
+	</body>
+</html>
